@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import Metrics from './components/Metrics';
 import MetricsValue from './components/MetricsValue.jsx';
+import GraphVisualization from './Features/GraphVisualization/GraphVisualization.jsx';
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -31,7 +32,7 @@ const App = () => (
     <Provider store={store}>
       <Wrapper>
         <Header />
-
+        <GraphVisualization />
         <ToastContainer />
       </Wrapper>
     </Provider>
