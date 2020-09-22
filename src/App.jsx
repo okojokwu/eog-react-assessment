@@ -10,7 +10,6 @@ import Wrapper from './components/Wrapper';
 import Metrics from './components/Metrics';
 import MetricsValue from './components/MetricsValue.jsx';
 import GraphVisualization from './Features/GraphVisualization/GraphVisualization.jsx';
-import { GlobalProvider } from './context/GlobalState';
 import Grid from '@material-ui/core/Grid';
 
 const store = createStore();
@@ -47,21 +46,19 @@ const App = () => (
     <Provider store={store}>
       <Wrapper>
         <Header />
-        <GlobalProvider>
-          <div style={styles.header}>
-            <MetricsValue />
-          </div>
-          <Grid container spacing={3}>
-            <Grid item xs={3}>
-              <div style={styles.buttons}>
-                <Metrics />
-              </div>
-            </Grid>
-            <Grid item xs={9}>
-              <GraphVisualization />
-            </Grid>
+        <div style={styles.header}>
+          <MetricsValue />
+        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
+            <div style={styles.buttons}>
+              <Metrics />
+            </div>
           </Grid>
-        </GlobalProvider>
+          <Grid item xs={9}>
+            <GraphVisualization />
+          </Grid>
+        </Grid>
         <ToastContainer />
       </Wrapper>
     </Provider>
