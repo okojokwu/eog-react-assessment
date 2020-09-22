@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'urql';
 import Chart from '../../components/Chart';
+import { useSelector } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const heartbeat = `
@@ -18,8 +19,15 @@ query($input: MeasurementQuery!) {
   }
 }
 `;
+const getMetricNames = state => {
+  const { metricNames } = state.metricNames;
+  return {
+    metricNames,
+  };
+};
 
 export default () => {
+  const { metricNames } = useSelector(getMetricNames);
   // time query
   const [res] = useQuery({
     query: heartbeat,
@@ -30,10 +38,11 @@ export default () => {
 
   // Object to query variable
   const input = {
-    metricName: 'casingPressure',
+    metricName: metricNames,
     before: heart,
     after: heart - 30000,
   };
+
   // measurement object
   const [result] = useQuery({
     query: measurements,

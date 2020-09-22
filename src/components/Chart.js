@@ -1,6 +1,7 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import moment from 'moment';
 
 const CustomToolTip = ({ active, payload, label }) => {
   if (active) {
@@ -15,6 +16,9 @@ const CustomToolTip = ({ active, payload, label }) => {
 
 export default props => {
   if (!props.data) return <LinearProgress />;
+  let xAxisFormatter = date => {
+    return moment.unix(date).format('hh:mm');
+  };
   return (
     <LineChart
       width={900}
@@ -28,11 +32,11 @@ export default props => {
       }}
     >
       <CartesianGrid strokeDasharray="4 4" />
-      <XAxis dataKey="at" />
+      <XAxis type={'category'} tickFormatter={xAxisFormatter} dataKey="at" />
       <YAxis unit={props.data.unit} type="number" domain={['auto', 'auto']} />
       <Tooltip content={CustomToolTip} />
       <br />
-      <Legend />
+
       <Line
         name={props.data.metric}
         unit={props.data.unit}

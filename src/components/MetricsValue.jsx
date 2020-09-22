@@ -30,6 +30,14 @@ const MetricsValue = () => {
   }, [data, error]);
   if (!fetching) return <LinearProgress />;
 
+  const styles = {
+    tezzy: {
+      display: 'flex',
+      flexFlow: 'row wrap',
+      justifyContent: 'space-around',
+    },
+  };
+
   const ftp = mets.filter(measurement => measurement.metric === 'tubingPressure');
   const tpRes = ftp.slice(0, 1).map(measurement => measurement.value);
   const fft = mets.filter(measurement => measurement.metric === 'flareTemp');
@@ -43,14 +51,14 @@ const MetricsValue = () => {
   const fwt = mets.filter(measurement => measurement.metric === 'waterTemp');
   const wtRes = fwt.slice(0, 1).map(measurement => measurement.value);
   return (
-    <>
+    <div style={styles.tezzy}>
       <Chip label={'Tubing Pressure: ' + tpRes} />
       <Chip label={'Water Temperature: ' + wtRes} />
       <Chip label={'Oil Temperature: ' + otRes} />
       <Chip label={'Injvalve Open: ' + ivoRes} />
       <Chip label={'Casing Pressure: ' + cpRes} />
       <Chip label={'Flare Temperature: ' + ftRes} />
-    </>
+    </div>
   );
 };
 export default MetricsValue;
