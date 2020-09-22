@@ -43,7 +43,7 @@ export default () => {
           </Button>
         ))}
       </ButtonGroup>
-      <Typography variant="h3">{metricNames}</Typography>
+      <Typography variant="h3">{metricNames.toLocaleUpperCase()}</Typography>
     </>
   );
 };
