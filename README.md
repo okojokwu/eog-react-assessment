@@ -4,7 +4,9 @@ This assessment was bespoke handcrafted for Peter Egwurube.
 
 This is a very interesting assessment,
 as much as i learned along the way it also spiked my interest and love for react and graphQl.
+
 <img src="screenshot1.png" alt="Visuals" width="800"/>
+
 The app was built with:
 
 - [React](https://reactjs.org/) - JavaScript front end framework
