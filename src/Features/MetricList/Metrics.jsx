@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { useQuery } from 'urql';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import * as actions from '../store/actions';
+import * as actions from '../../store/actions';
 import { useDispatch } from 'react-redux';
 
 const query = `
@@ -14,7 +14,6 @@ query{
 `;
 
 export default () => {
-  // const { click } = useContext(GlobalContext);
   const [mets, getMets] = useState([]);
   const [metricNames, getSentInfo] = useState('');
 

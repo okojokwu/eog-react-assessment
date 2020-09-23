@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSubscription } from 'urql';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Chip from './Chip';
+import Chip from '../../components/Chip';
 
 const query = `
 subscription{

@@ -7,8 +7,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import Metrics from './components/Metrics';
-import MetricsValue from './components/MetricsValue.jsx';
+import Metrics from './Features/MetricList/Metrics.jsx';
+import MetricsValue from './Features/SubscribedList/MetricsValue.jsx';
 import GraphVisualization from './Features/GraphVisualization/GraphVisualization.jsx';
 import Grid from '@material-ui/core/Grid';
 
